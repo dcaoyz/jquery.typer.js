@@ -10,8 +10,8 @@ String.prototype.rightChars = function(n){
 	}
 };
 
-(function($) {
-	var options = {
+(function($, options) {
+	var defaultOptions = {
 			highlightSpeed		: 20,
 			typeSpeed				 : 100,
 			clearDelay				: 500,
@@ -172,16 +172,16 @@ String.prototype.rightChars = function(n){
 
 	// Expose our options to the world.
 	$.typer = (function () {
-		return { options: options };
+		return { options: defaultOptions };
 	})();
-
-	$.extend($.typer, {
-		options: options
-	});
 
 	//-- Methods to attach to jQuery sets
 
-	$.fn.typer = function() {
+	$.fn.typer = function(options) {
+		$.extend($.typer, {
+			options: options
+		});
+
 		var $elements = $(this);
 
 		return $elements.each(function () {

@@ -43,10 +43,12 @@ There are some options that are available to you as well:
 }
 ```
 
-Set the options individually:
+Set the options:
 
 ```javascript
-$.typer.options.highlightSpeed = 500;
+$('[data-typer-targets]').typer({
+	// your options here
+});
 ```
 ## About
 
