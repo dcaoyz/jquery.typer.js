@@ -18,7 +18,9 @@ String.prototype.rightChars = function(n){
 			typeDelay				 : 200,
 			clearOnHighlight	: true,
 			typerDataAttr		 : 'data-typer-targets',
-			typerInterval		 : 2000,
+			typerInterval     : 2000,
+			highlightColor	: '#fff',
+			highlightedTextColor	: '#000',
 			callback					: null
 		},
 		highlight,
@@ -33,7 +35,9 @@ String.prototype.rightChars = function(n){
 		typeWithAttribute,
 		getHighlightInterval,
 		getTypeInterval,
-		typerInterval;
+		typerInterval,
+		highlightColor,
+		highlightedTextColor;
 
 	spanWithColor = function(color, backgroundColor) {
 		if (color === 'rgba(0, 0, 0, 0)') {
@@ -128,11 +132,12 @@ String.prototype.rightChars = function(n){
 		highlightedText = $e.text().substring(position - 1, $e.data('rightStop') + 1);
 		rightText = $e.text().substring($e.data('rightStop') + 1);
 
+		console.log($.typer.options.highlightColor + '/' + $.typer.options.highlightedTextColor);
 		$e.html(leftText)
 			.append(
 				spanWithColor(
-						$e.data('backgroundColor'),
-						$e.data('primaryColor')
+						$.typer.options.highlightColor,
+						$.typer.options.highlightedTextColor
 					)
 					.append(highlightedText)
 			)

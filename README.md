@@ -30,14 +30,16 @@ There are some options that are available to you as well:
 ```javascript
 // Defaults
 {
-    highlightSpeed    : 20,
-    typeSpeed         : 100,
-    clearDelay        : 500,
-    typeDelay         : 200,
-    clearOnHighlight  : true,
-    typerDataAttr     : 'data-typer-targets',
-    typerInterval     : 2000,
-    callback          : null
+			highlightSpeed		: 20,
+			typeSpeed				 : 100,
+			clearDelay				: 500,
+			typeDelay				 : 200,
+			clearOnHighlight	: true,
+			typerDataAttr		 : 'data-typer-targets',
+			typerInterval     : 2000,
+			highlightColor	: '#fff',
+			highlightedTextColor	: '#000',
+			callback					: null
 }
 ```
 
