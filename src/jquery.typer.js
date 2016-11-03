@@ -136,8 +136,9 @@ String.prototype.rightChars = function(n){
 		$e.html(leftText)
 			.append(
 				spanWithColor(
-						$.typer.options.highlightColor,
-						$.typer.options.highlightedTextColor
+						$.typer.options.highlightedTextColor,
+						$.typer.options.highlightColor
+						
 					)
 					.append(highlightedText)
 			)
