@@ -1,15 +1,3 @@
-String.prototype.rightChars = function(n){
-	if (n <= 0) {
-		return "";
-	}
-	else if (n > this.length) {
-		return this;
-	}
-	else {
-		return this.substring(this.length, this.length - n);
-	}
-};
-
 (function($, options) {
 	var defaultOptions = {
 			highlightSpeed : 20,
@@ -38,6 +26,18 @@ String.prototype.rightChars = function(n){
 		typerInterval,
 		highlightColor,
 		highlightedTextColor;
+
+	rightChars = function(str, n){
+		if (n <= 0) {
+			return "";
+		}
+		else if (n > this.length) {
+			return this;
+		}
+		else {
+			return this.substring(this.length, this.length - n);
+		}
+	};
 
 	spanWithColor = function(color, backgroundColor) {
 		if (color === 'rgba(0, 0, 0, 0)') {
@@ -216,7 +216,7 @@ String.prototype.rightChars = function(n){
 
 		$e.data({
 			oldLeft: currentText.substring(0, i),
-			oldRight: currentText.rightChars(j - 1),
+			oldRight: rightChars(currentText, j - 1),
 			leftStop: i,
 			rightStop: currentText.length - j,
 			primaryColor: $e.css('color'),
