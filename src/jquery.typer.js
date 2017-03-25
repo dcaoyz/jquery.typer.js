@@ -12,16 +12,16 @@ String.prototype.rightChars = function(n){
 
 (function($, options) {
 	var defaultOptions = {
-			highlightSpeed		: 20,
-			typeSpeed				 : 100,
-			clearDelay				: 500,
-			typeDelay				 : 200,
-			clearOnHighlight	: true,
-			typerDataAttr		 : 'data-typer-targets',
-			typerInterval     : 2000,
-			highlightColor	: '#fff',
-			highlightedTextColor	: '#000',
-			callback					: null
+			highlightSpeed : 20,
+			typeSpeed : 100,
+			clearDelay : 500,
+			typeDelay : 200,
+			clearOnHighlight : true,
+			typerDataAttr : 'data-typer-targets',
+			typerInterval : 2000,
+			highlightColor : '#fff',
+			highlightedTextColor : '#000',
+			callback : null
 		},
 		highlight,
 		clearText,
@@ -68,18 +68,15 @@ String.prototype.rightChars = function(n){
 
 	type = function ($e) {
 		var
-			// position = $e.data('typePosition'),
 			text = $e.data('text'),
 			oldLeft = $e.data('oldLeft'),
 			oldRight = $e.data('oldRight');
 
-		// if (!isNumber(position)) {
-			// position = $e.data('leftStop');
-		// }
-
 		if (!text || text.length === 0) {
 			clearData($e);
-			if ($.typer.options.callback) $.typer.options.callback()
+
+			if ($.typer.options.callback) $.typer.options.callback();
+
 			return;
 		}
 
@@ -92,10 +89,6 @@ String.prototype.rightChars = function(n){
 			oldLeft: oldLeft + text.charAt(0),
 			text: text.substring(1)
 		});
-
-		// $e.text($e.text() + text.substring(position, position + 1));
-
-		// $e.data('typePosition', position + 1);
 
 		setTimeout(function () {
 			type($e);
@@ -111,8 +104,7 @@ String.prototype.rightChars = function(n){
 	};
 
 	highlight = function ($e) {
-		var
-			position = $e.data('highlightPosition'),
+		var position = $e.data('highlightPosition'),
 			leftText,
 			highlightedText,
 			rightText;
@@ -125,6 +117,7 @@ String.prototype.rightChars = function(n){
 			setTimeout(function () {
 				clearText($e);
 			}, clearDelay());
+
 			return;
 		}
 
@@ -132,7 +125,6 @@ String.prototype.rightChars = function(n){
 		highlightedText = $e.text().substring(position - 1, $e.data('rightStop') + 1);
 		rightText = $e.text().substring($e.data('rightStop') + 1);
 
-		console.log($.typer.options.highlightColor + '/' + $.typer.options.highlightedTextColor);
 		$e.html(leftText)
 			.append(
 				spanWithColor(
@@ -208,11 +200,13 @@ String.prototype.rightChars = function(n){
 
 		if (currentText === newString) {
 			console.log("Our strings our equal, nothing to type");
+
 			return $e;
 		}
 
 		if (currentText.replace(/&/g, '&amp;').replace(/"/g, '&quot;') !== $e.html()) {
 			console.error("Typer does not work on elements with child elements.");
+
 			return $e;
 		}
 
