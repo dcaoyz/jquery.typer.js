@@ -138,7 +138,7 @@ String.prototype.rightChars = function(n){
 				spanWithColor(
 						$.typer.options.highlightedTextColor,
 						$.typer.options.highlightColor
-						
+
 					)
 					.append(highlightedText)
 			)
@@ -211,7 +211,7 @@ String.prototype.rightChars = function(n){
 			return $e;
 		}
 
-		if (currentText !== $e.html()) {
+		if (currentText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') !== $e.html()) {
 			console.error("Typer does not work on elements with child elements.");
 			return $e;
 		}
