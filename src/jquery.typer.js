@@ -192,6 +192,12 @@
 	};
 
 	$.fn.typeTo = function (newString) {
+		function decodeHtml(html) {
+			var txt = document.createElement("textarea");
+			txt.innerHTML = html;
+			return txt.value;
+		}
+
 		var
 			$e = $(this),
 			currentText = $e.text(),
@@ -204,7 +210,7 @@
 			return $e;
 		}
 
-		if (currentText.replace(/&/g, '&amp;').replace(/"/g, '&quot;') !== $e.html()) {
+		if (decodeHtml(currentText) !== decodeHtml($e.html())) {
 			console.error("Typer does not work on elements with child elements.");
 
 			return $e;
