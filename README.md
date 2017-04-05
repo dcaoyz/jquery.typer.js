@@ -30,20 +30,25 @@ There are some options that are available to you as well:
 ```javascript
 // Defaults
 {
-  highlightSpeed    : 20,
-  typeSpeed         : 100,
-  clearDelay        : 500,
-  typeDelay         : 200,
-  clearOnHighlight  : true,
-  typerDataAttr     : 'data-typer-targets',
-  typerInterval     : 2000
+    highlightSpeed       : 20,
+    typeSpeed            : 100,
+    clearDelay           : 500,
+    typeDelay            : 200,
+    clearOnHighlight     : true,
+    typerDataAttr        : 'data-typer-targets',
+    typerInterval        : 2000,
+    highlightColor       : '#fff',
+    highlightedTextColor : '#000',
+    callback             : null
 }
 ```
 
-Set the options individually:
+Set the options:
 
 ```javascript
-$.typer.options.highlightSpeed = 500;
+$('[data-typer-targets]').typer({
+    // your options here
+});
 ```
 ## About
 
